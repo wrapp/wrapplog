@@ -1,4 +1,4 @@
-package log
+package wrapplog
 
 // Rip-off of the logrus TextFormatter with Wrapp defaults
 import (
