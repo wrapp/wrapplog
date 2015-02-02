@@ -67,6 +67,8 @@ func (f *Formatter) Format(entry *logrus.Entry) ([]byte, error) {
 	if isColored {
 		printColored(b, entry, keys)
 	} else {
+		levelText := strings.ToUpper(entry.Level.String())
+		fmt.Fprintf(b, "%v ", levelText)
 		f.appendKeyValue(b, "time", entry.Time.Format(time.RFC3339))
 		f.appendKeyValue(b, "level", entry.Level.String())
 		f.appendKeyValue(b, "msg", entry.Message)
