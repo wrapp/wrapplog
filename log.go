@@ -1,6 +1,7 @@
 package wrapplog
 
 import (
+	"os"
 	"strings"
 
 	"github.com/Sirupsen/logrus"
@@ -8,11 +9,15 @@ import (
 
 var jsonFormatter = logrus.JSONFormatter{}
 
-type WrappFormatter struct {
-	// TimestampFormat sets the format used for marshaling timestamps.
-	TimestampFormat string
+type WrappFormatter struct{}
+
+func init() {
+	logrus.SetFormatter(&WrappFormatter{})
+	logrus.SetOutput(os.Stdout)
+	logrus.Info("initializing wrapp logging")
 }
 
+// Format logs according to WEP-007
 func (f *WrappFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	jsonBytes, err := (&jsonFormatter).Format(entry)
 	prefix := []byte(strings.ToUpper(entry.Level.String()) + " ")
