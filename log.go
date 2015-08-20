@@ -14,7 +14,6 @@ type WrappFormatter struct{}
 func init() {
 	logrus.SetFormatter(&WrappFormatter{})
 	logrus.SetOutput(os.Stdout)
-	logrus.Info("initializing wrapp logging")
 }
 
 // Format logs according to WEP-007
