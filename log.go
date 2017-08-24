@@ -3,7 +3,7 @@ package wrapplog
 import (
 	"os"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 )
 
 func init() {
