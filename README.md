@@ -7,7 +7,7 @@ Usage:
 ```go
 import(
     _ "github.com/wrapp/wrapplog"
-    log "github.com/Sirupsen/logrus"
+    log "github.com/sirupsen/logrus"
 )
 ```
 
